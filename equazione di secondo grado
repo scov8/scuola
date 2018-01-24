@@ -1,0 +1,48 @@
+<?php
+if($_GET['eq'] == true)
+{
+$a=$_POST["a"];
+$b=$_POST["b"];
+$c=$_POST["c"];
+if($a != 0) {
+$delta = ($b * $b) - (4 * $a * $c);
+if($delta >= 0) {
+$x1 = (-$b+sqrt($delta))/(2*$a);
+$x2 = (-$b-sqrt($delta))/(2*$a);
+} else {
+  echo "Equazione di secondo grado non appartente ai reali ma ai complessi";
+}
+} else {
+  echo "Non è una equazione di secondo grado";
+}
+}
+?>
+
+<!DOCTYPE html>
+<HTML>
+<head>
+<title>eq di 2°</title>
+</head>
+<body>
+<H3>Il programma permette di risolvere le eq di 2°.</h3>
+<HR>
+  <!--action="?register=true"-->
+<form name="Inserimento" action="?eq=true" method="post">
+<input type="TEXT" name="a" placeholder="a">x^2
+<input type="TEXT" name="b" placeholder="+ o - b">x
+<input type="TEXT" name="c" placeholder="+ o - c">
+<input type="SUBMIT" name="invia" value="Calcola">
+<input type="RESET" name="reset" value="Cancella valori"><br>
+</form>
+Con a= <?php echo"$a"?> ,b= <?php echo"$b"?>e c= <?php echo"$c<BR>"?>
+La misura di x1 &egrave <?php echo"$x1<BR>"?>
+La misura di x2 &egrave <?php echo"$x2<BR>"?>
+<?php
+ if($a>0) {
+   echo "La parabola è concava";
+    } elseif($a<0) {
+      echo "La parabola è convessa";
+    }
+    ?>
+</body>
+</HTML>
